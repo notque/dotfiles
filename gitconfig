@@ -33,3 +33,6 @@
 
 [include]
   path = .gitlocalconfig
+
+[web]
+	browser = open

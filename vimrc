@@ -1,5 +1,11 @@
 runtime macros/matchit.vim
 runtime bundle/vim-pathogen/autoload/pathogen.vim
+
+"vim needs a posix compliant shell
+if &shell =~# 'fish$'
+  set shell=/bin/sh
+endif
+
 execute pathogen#infect()
 
 filetype plugin indent on
@@ -142,6 +148,9 @@ let g:Powerline_symbols = 'fancy'
 
 "vim-markdown
 let g:vim_markdown_folding_disabled=1
+"
+"fugitive
+let g:fugitive_github_domains = ['github.com', 'github.wdf.sap.corp']
 
 " Presentation colors and config
 function! PresentationMode()
