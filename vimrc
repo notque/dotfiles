@@ -148,7 +148,10 @@ let g:Powerline_symbols = 'fancy'
 
 "vim-markdown
 let g:vim_markdown_folding_disabled=1
-"
+
+"ctrl-p
+let g:ctrlp_custom_ignore = 'vendor/bundle'
+
 "fugitive
 let g:fugitive_github_domains = ['github.com', 'github.wdf.sap.corp']
 
