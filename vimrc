@@ -138,11 +138,6 @@ autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 autocmd BufRead,BufNewFile *.json set filetype=json
 autocmd FileType json set equalprg=json_reformat
   
-"Syntastic
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_jump=1
-let g:syntastic_disabled_filetypes = ['cucumber']
-
 "Powerline
 let g:Powerline_symbols = 'fancy'
 
