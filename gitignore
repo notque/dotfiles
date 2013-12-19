@@ -1,3 +1,5 @@
 bin/
 vendor/bundle
 .bundle
+.bundle/
+.bundle/config
