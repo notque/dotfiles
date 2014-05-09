@@ -3,3 +3,4 @@ vendor/bundle
 .bundle
 .bundle/
 .bundle/config
+.agignore
