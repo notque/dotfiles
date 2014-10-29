@@ -1,5 +1,5 @@
 ---
 gem: --no-ri --no-rdoc
 :sources:
-  - https://rubygems.org/
+  - https://rubygems.org
   - http://moo-repo.wdf.sap.corp:8080/geminabox/
