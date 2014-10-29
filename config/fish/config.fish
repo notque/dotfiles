@@ -25,3 +25,4 @@ function fish_user_key_bindings
   bind \e\[1\;9D 'backward-word'
 end
 
+test -f /usr/local/etc/autojump.fish; and . /usr/local/etc/autojump.fish
