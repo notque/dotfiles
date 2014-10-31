@@ -1,5 +1,9 @@
 #!/bin/bash
 
-cd $(dirname "${BASH_SOURCE[0]}")
-echo $(pwd)
+cd "$(dirname "$0")/.."  
+
+ln -s vimrc ~/.vimrc
+
+
+ls -R ~
 
