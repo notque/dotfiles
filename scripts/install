@@ -2,8 +2,4 @@
 
 cd "$(dirname "$0")/.."  
 
-ln -s vimrc ~/.vimrc
-
-
-ls -Ral ~
-
+ln -sf ./vimrc ~/.vimrc
