@@ -5,5 +5,5 @@ cd "$(dirname "$0")/.."
 ln -s vimrc ~/.vimrc
 
 
-ls -R ~
+ls -Ral ~
 
