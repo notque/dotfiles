@@ -2,8 +2,35 @@
 
 cd "$(dirname "$0")/.."  
 
-ln -s "$(pwd)/vimrc" ~/.vimrc
-ln -s "$(pwd)/vimrc" ~/.vimrc
+DOTFILES_SOURCE=$(pwd)
+DOTFILES_TARGET=${DOTFILES_TARGET:-HOME}
 
+link() {
+  local source="${DOTFILES_SOURCE}/${1}"
+  local target="${DOTFILES_TARGET}/${2}"
+  local host_source="${source}.host-$(hostname -s)"
+  local domain_source="${source}.domain-$(hostname -f | rev | cut -d. -f-2 | rev)"
 
+  if [[ -e "${host_source}" ]]; then
+    source=${host_source}
+  elif [[ -e "${domain_source}" ]]; then
+    source=${domain_source}
+  fi 
 
+  ln -sf "${source}" "${target}"
+}
+
+# fetch submodules
+git submodule init
+git submodule update
+
+# link stuff
+link config .config
+link vim .vim
+link gemrc .gemrc
+link gitconfig .gitconfig
+link githelpers .githelpers
+link gitignore .gitignore
+link gitlocalconfig .gitlocalconfig
+link rspec .rspec
+ink vimrc .vimrc
