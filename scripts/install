@@ -2,4 +2,8 @@
 
 cd "$(dirname "$0")/.."  
 
-ln -sf ./vimrc ~/.vimrc
+ln -s "$(pwd)/vimrc" ~/.vimrc
+ln -s "$(pwd)/vimrc" ~/.vimrc
+
+
+
