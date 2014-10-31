@@ -36,3 +36,5 @@
 
 [web]
 	browser = open
+[credential]
+	helper = osxkeychain
