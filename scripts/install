@@ -3,7 +3,7 @@
 cd "$(dirname "$0")/.."  
 
 DOTFILES_SOURCE=$(pwd)
-DOTFILES_TARGET=${DOTFILES_TARGET:-HOME}
+DOTFILES_TARGET=${DOTFILES_TARGET:-${HOME}}
 
 link() {
   local source="${DOTFILES_SOURCE}/${1}"
@@ -33,4 +33,4 @@ link githelpers .githelpers
 link gitignore .gitignore
 link gitlocalconfig .gitlocalconfig
 link rspec .rspec
-ink vimrc .vimrc
+link vimrc .vimrc
