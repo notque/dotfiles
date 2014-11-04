@@ -26,7 +26,7 @@ brew install wget
 brew install xz
 
 brew cask install alfred
-brew cask alfred
+brew cask alfred link
 brew cask install amazon-music 
 brew cask install dropbox 
 brew cask install firefox 
