@@ -100,7 +100,7 @@ au FocusLost * :wa
 "Color scheme (terminal)
 syntax on
 colorscheme molokai
-set guifont=Menlo\ Regular\ for\ Powerline:h12
+set guifont=Meslo\ LG\ S:h12
 
 "Gui Options
 set guioptions=e-t
@@ -139,7 +139,8 @@ autocmd BufRead,BufNewFile *.json set filetype=json
 autocmd FileType json set equalprg=json_reformat
   
 "Powerline
-let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts=1
+let g:airline_theme=murmur
 
 "vim-markdown
 let g:vim_markdown_folding_disabled=1
