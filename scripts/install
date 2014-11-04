@@ -34,3 +34,4 @@ link gitignore .gitignore
 link gitlocalconfig .gitlocalconfig
 link rspec .rspec
 link vimrc .vimrc
+link Library/Preferences/com.mizage.Divvy.plist Library/Preferences/com.mizage.Divvy.plist
