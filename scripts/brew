@@ -21,7 +21,7 @@ brew install rbenv
 brew install ruby-build
 brew install the_silver_searcher
 brew install tree
-brew install weechat
+brew install weechat --with-python --with-ruby --with-lua --with-perl
 brew install wget
 brew install xz
 
