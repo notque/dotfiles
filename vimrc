@@ -157,6 +157,6 @@ function! PresentationMode()
 	colorscheme solarized
 	set nolist
   set laststatus=0
-  set guifont=Menlo\ for\ Powerline:h48
+  set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h12
 endfunction
 nmap <leader>PR :call PresentationMode()<cr>
