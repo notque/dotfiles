@@ -1,10 +1,3 @@
 ---
 BUNDLE_PATH: vendor/bundle
-BUNDLE_LOCAL__MONSOON-TEAMSTER: /Users/d038720/Code/monsoon/monsoon-teamster
-BUNDLE_LOCAL__MONSOON-CLIENT-FRAMEWORK: /Users/d038720/Code/monsoon/monsoon-client-framework
-BUNDLE_LOCAL__MONSOON-CLIENT-PUBLIC: /Users/d038720/Code/monsoon/monsoon-client-public
-BUNDLE_LOCAL__MONSOON-CLIENT: /Users/d038720/Code/monsoon/monsoon-client
-BUNDLE_LOCAL__MONSOON-WORKER: /Users/d038720/Code/monsoon/monsoon-worker
 BUNDLE_BUILD__LIBV8: --with-cxx=clang++
-BUNDLE_LOCAL__MONSOON-EC2-API: /Users/d038720/Code/monsoon/monsoon-ec2-api
-BUNDLE_LOCAL__MONSOON-AMQP: /Users/d038720/Code/monsoon/monsoon-amqp
