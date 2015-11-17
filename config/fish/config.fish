@@ -1,12 +1,18 @@
 set -g fish_greeting ''
 
 set EDITOR /usr/local/bin/mvim
+set -x GOPATH $HOME/Go
+
+set -x KUBECONFIG ~/kube/.config:.kubeconfig:/Users/d038720/Code/monsoon/monsoon-kube/.kubeconfig
 
 set PATH /usr/local/bin $PATH
 set PATH /usr/local/sbin $PATH
 set PATH $HOME/.rbenv/bin $PATH
 set PATH $HOME/.rbenv/shims $PATH
 set PATH $HOME/bin $PATH
+set PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
+set PATH $GOPATH/bin $PATH
+set PATH /usr/local/opt/go/libexec/bin $PATH
 
 alias gs="git status"
 alias ga="git add ."
@@ -25,4 +31,4 @@ function fish_user_key_bindings
   bind \e\[1\;9D 'backward-word'
 end
 
-test -f /usr/local/etc/autojump.fish; and . /usr/local/etc/autojump.fish
+[ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
