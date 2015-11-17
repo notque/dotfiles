@@ -8,12 +8,19 @@ end
 
 function _rbenv_version
   if type -P rbenv >/dev/null
-    echo (rbenv version-name | sed -e 's/ .*//')
+    if [ (rbenv version-origin | grep $PWD) ]
+      echo (rbenv version-name | sed -e 's/ .*//')
+    end
+  end
+end
+
+function _kubectl_context
+  if type -p kubectl > /dev/null
+    echo (kubectl config view -o template --template='{{index . "current-context"}}')
   end
 end
 
 function fish_prompt
-
   set -l cyan (set_color -o cyan)
   set -l yellow (set_color -o yellow)
   set -l red (set_color -o red)
@@ -23,13 +30,19 @@ function fish_prompt
   set -l arrow "$red➜ "
   set -l cwd $cyan(basename (prompt_pwd))
 
-  if [ (_rbenv_version) ]
-    set ruby_info (_rbenv_version)
-    set ruby_info " $red‹$ruby_info›"
+  set rbenv_version (_rbenv_version)
+  if [ $rbenv_version ]
+    set ruby_info " $red‹$rbenv_version›"
+  end
+ 
+  set kubectl_context (_kubectl_context)
+  if [ $kubectl_context ]
+    set kubectl_info " $blue‹$kubectl_context›"
   end
 
-  if [ (_git_branch_name) ]
-    set git_info $yellow(_git_branch_name)
+  set git_branch_name (_git_branch_name)
+  if [ $git_branch_name ]
+    set git_info "$yellow$git_branch_name"
 
     if [ (_is_git_dirty) ]
       set indicator "$red ✗"
@@ -40,6 +53,6 @@ function fish_prompt
     set git_info " $yellow‹$git_info$indicator$yellow›"
   end
 
-  echo -n -s $arrow $cwd $ruby_info $git_info $normal ' '
+  echo -n -s $arrow $cwd $ruby_info $kubectl_info $git_info $normal ' '
 end
 
