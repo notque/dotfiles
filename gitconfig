@@ -9,11 +9,6 @@
   r    = !git l -22                                    #   recent only 
   ra   = !git r --all                                  #   recent with references
 
-  s    = !git status
-  a    = !git add
-  c    = !git commit
-  d    = !git diff
-
 [branch]
 	autosetuprebase = always
 
