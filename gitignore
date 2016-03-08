@@ -1,7 +1,10 @@
-bin/
+./bin/
 vendor/bundle
 .bundle
 .bundle/
 .bundle/config
 .agignore
 **/.DS_Store
+.gitignore_local
+.kubeconfig
+./.kubeconfig
