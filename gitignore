@@ -1,4 +1,4 @@
-./bin/
+bin/
 vendor/bundle
 .bundle
 .bundle/
@@ -7,4 +7,3 @@ vendor/bundle
 **/.DS_Store
 .gitignore_local
 .kubeconfig
-./.kubeconfig
