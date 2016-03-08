@@ -99,8 +99,8 @@ au FocusLost * :wa
 
 "Color scheme (terminal)
 syntax on
-colorscheme molokai
-set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h12
+colorscheme solarized
+set guifont=Hack:h12
 
 "Gui Options
 set guioptions=e-t
@@ -150,6 +150,16 @@ let g:ctrlp_custom_ignore = 'vendor/bundle'
 
 "fugitive
 let g:fugitive_github_domains = ['github.com', 'github.wdf.sap.corp']
+
+"Enable goimports to automatically insert import paths instead of gofm
+let g:go_fmt_command = "goimports"
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_auto_type_info = 1
 
 " Presentation colors and config
 function! PresentationMode()
