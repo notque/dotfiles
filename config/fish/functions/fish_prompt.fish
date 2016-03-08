@@ -1,5 +1,7 @@
 function _git_branch_name
-  echo (git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
+  if command git rev-parse --git-dir > /dev/null ^ /dev/null
+    echo (git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
+  end
 end
 
 function _is_git_dirty
