@@ -99,8 +99,14 @@ au FocusLost * :wa
 
 "Color scheme (terminal)
 syntax on
-colorscheme solarized
+let g:solarized_contrast = 'high'
+let g:solarized_visibility = 'low'
+let g:solarized_termtrans = 1
+set fillchars=vert:│
+" Override color scheme to make split the same color as tmux's default
+autocmd ColorScheme * highlight VertSplit cterm=NONE guibg=NONE ctermbg=NONE
 set guifont=Hack:h12
+colorscheme solarized
 
 "Gui Options
 set guioptions=e-t
@@ -140,7 +146,7 @@ autocmd FileType json set equalprg=json_reformat
   
 "Powerline
 let g:airline_powerline_fonts=1
-let g:airline_theme='powerlineish'
+let g:airline_theme='solarized'
 
 "vim-markdown
 let g:vim_markdown_folding_disabled=1
