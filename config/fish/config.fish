@@ -4,6 +4,8 @@ set EDITOR /usr/local/bin/mvim
 set -x GOPATH $HOME/Go
 
 set -x KUBECONFIG ~/.kube/config:.kubeconfig
+set -x KUBENAMESPACE
+set -x GITHUB_TOKEN be76f8004ffb265993c80d81612cea6aa6066995
 
 set PATH /usr/local/bin $PATH
 set PATH /usr/local/sbin $PATH
@@ -14,9 +16,28 @@ set PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
 set PATH $GOPATH/bin $PATH
 set PATH /usr/local/opt/go/libexec/bin $PATH
 
+function kubectl 
+  if test -n "$KUBENAMESPACE"
+    monsoonctl --namespace $KUBENAMESPACE $argv
+  else
+    monsoonctl $argv
+  end
+end
+
+function kn 
+  if test (count $argv) -gt 0
+    set -x KUBENAMESPACE $argv[1]
+    echo "Namespace is now $argv[1]"
+  else
+    set -u KUBENAMESPACE
+    echo "Namespace has been removed"
+  end
+end
+
+
 alias k="kubectl"
 alias kg="kubectl get"
-alias kgp="kubectl get pods"
+alias kgp="kubectl get pods -o wide"
 alias kgpa="kubectl get pods --all-namespaces -o wide"
 alias kgs="kubectl get services"
 alias kgsa="kubectl get services --all-namespaces"

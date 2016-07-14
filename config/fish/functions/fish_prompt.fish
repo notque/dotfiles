@@ -17,8 +17,14 @@ function _rbenv_version
 end
 
 function _kubectl_context
-  if type -p kubectl > /dev/null
-    echo (kubectl config view -o template --template='{{index . "current-context"}}')
+  set -l kubectl_namespace ""
+
+  if test -n "$KUBENAMESPACE"
+    set kubectl_namespace "/$KUBENAMESPACE"
+  end
+
+  if type -p monsoonctl > /dev/null
+    echo (monsoonctl config view -o template --template='{{index . "current-context"}}')$kubectl_namespace
   end
 end
 
