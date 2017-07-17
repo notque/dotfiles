@@ -3,56 +3,35 @@ set -g fish_greeting ''
 set EDITOR /usr/local/bin/mvim
 set -x GOPATH $HOME/Go
 
-set -x KUBECONFIG ~/.kube/config:.kubeconfig
-set -x KUBENAMESPACE
-set -x GITHUB_TOKEN be76f8004ffb265993c80d81612cea6aa6066995
+set -x KUBECONFIG /Users/d038720/Code/monsoon/monsoon3/.kubeconfig2
+set -x GITHUB_TOKEN d9a64f9773fce4dc6ee1c9da289726c29407f5d8
 
 set PATH /usr/local/bin $PATH
 set PATH /usr/local/sbin $PATH
-set PATH $HOME/.rbenv/bin $PATH
-set PATH $HOME/.rbenv/shims $PATH
 set PATH $HOME/bin $PATH
 set PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
 set PATH $GOPATH/bin $PATH
 set PATH /usr/local/opt/go/libexec/bin $PATH
 
-function kubectl 
-  if test -n "$KUBENAMESPACE"
-    monsoonctl --namespace $KUBENAMESPACE $argv
-  else
-    monsoonctl $argv
-  end
-end
+alias h="_helm"
 
-function kn 
-  if test (count $argv) -gt 0
-    set -x KUBENAMESPACE $argv[1]
-    echo "Namespace is now $argv[1]"
-  else
-    set -u KUBENAMESPACE
-    echo "Namespace has been removed"
-  end
-end
-
-
-alias k="kubectl"
-alias kg="kubectl get"
-alias kgp="kubectl get pods -o wide"
-alias kgpa="kubectl get pods --all-namespaces -o wide"
-alias kgs="kubectl get services"
-alias kgsa="kubectl get services --all-namespaces"
-alias kgr="kubectl get rc"
-alias kgr="kubectl get rc --all-namespaces"
-alias kgn="kubectl get nodes"
-alias kl="kubectl logs"
-alias ke="kubectl exec -ti"
-alias kd="kubectl describe"
-alias kdp="kubectl describe pod"
-alias kds="kubectl describe service"
-alias kdr="kubectl describe rc"
-alias kdn="kubectl describe node"
-alias kc="kubectl create"
-alias ku="kubectl config use-context"
+alias k="_kubectl"
+alias kg="k get --show-all"
+alias kgp="kg pods -o wide"
+alias kgpa="kgp --all-namespaces"
+alias kgs="kg services --show-all"
+alias kgsa="kg services --all-namespaces"
+alias kgr="kg rc --all-namespaces"
+alias kgn="kg nodes --show-labels=true"
+alias kl="k logs -f"
+alias klt="kl --tail 1000"
+alias ke="k exec -ti"
+alias kd="k describe"
+alias kdp="kd pod"
+alias kds="kd service"
+alias kdr="kd rc"
+alias kdn="kd node"
+alias kc="k create"
 
 alias g="git"
 alias gs="git status"
@@ -78,9 +57,6 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gss="git stash save"
 alias gsp="git stash pop"
-
-# source host specific config
-. $HOME/.config/fish/(hostname -s).fish
 
 function fish_user_key_bindings
   bind \e.       'history-token-search-backward'
