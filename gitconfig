@@ -9,9 +9,6 @@
   r    = !git l -22                                    #   recent only 
   ra   = !git r --all                                  #   recent with references
 
-[branch]
-	autosetuprebase = always
-
 [core]
 	editor = mvim -g -f
 	excludesfile = ~/.gitignore
@@ -19,12 +16,8 @@
 [color]
 	ui = auto
 
-[branch "master"]
-	remote = origin
-	merge = refs/heads/master
-
 [push]
-	default = current
+	default = simple
 
 [include]
   path = .gitlocalconfig
@@ -33,3 +26,6 @@
 	browser = open
 [credential]
 	helper = osxkeychain
+
+[branch]
+	autosetupmerge = true
