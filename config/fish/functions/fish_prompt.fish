@@ -14,12 +14,20 @@ function __kubectl_context
     set namespace "/$KUBECTL_NAMESPACE"
   end
 
-  echo (set_color -o blue)‹$context$namespace›
+  echo " "(set_color -o blue)‹$context$namespace› 
+end
+
+function __openstack_context
+  if test -n "$OS_PROJECT_DOMAIN_NAME"
+    if test -n "$OS_PROJECT_NAME"
+      echo " "(set_color -o yellow)\[$OS_PROJECT_DOMAIN_NAME/$OS_PROJECT_NAME\] 
+    end
+  end
 end
 
 function fish_prompt
   set -gx __fish_git_prompt_showdirtystate true
   set -gx __fish_git_prompt_showcolorhints true
 
-  echo -n (set_color -o red)➜ (set_color -o cyan)(basename (prompt_pwd)) (__fish_git_prompt) (__kubectl_context) (set_color normal) 
+  echo -n -s (set_color -o red)➜ " " (set_color -o cyan)(basename (prompt_pwd)) (__fish_git_prompt) (__openstack_context) (__kubectl_context) (set_color normal) " "
 end
