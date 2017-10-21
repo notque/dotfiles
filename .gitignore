@@ -2,3 +2,4 @@
 */fish/fishd.*
 config/fish/fish_read_history
 vim/.netrwhist
+config/gocode/
