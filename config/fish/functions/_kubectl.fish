@@ -2,7 +2,7 @@ function _kubectl
   test -n "$KUBECTL_CONTEXT"; or set -x KUBECTL_CONTEXT (kubectl config current-context)
 
   if count $argv > /dev/null
-    kubernikusctl auth refresh --context $KUBECTL_CONTEXT
+    _kubernikusctl auth refresh 
   end
 
   if test -n "$KUBECTL_NAMESPACE"
