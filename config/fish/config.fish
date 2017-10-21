@@ -3,7 +3,7 @@ set -g fish_greeting ''
 set EDITOR /usr/local/bin/mvim
 set -x GOPATH $HOME/Go
 
-set -x KUBECONFIG /Users/d038720/Code/monsoon/monsoon3/.kubeconfig2
+set -x KUBECONFIG .kubeconfig:/Users/d038720/Code/monsoon/monsoon3/.kubeconfig
 set -x GITHUB_TOKEN d9a64f9773fce4dc6ee1c9da289726c29407f5d8
 
 set PATH /usr/local/bin $PATH
@@ -22,7 +22,7 @@ alias kgpa="kgp --all-namespaces"
 alias kgs="kg services --show-all"
 alias kgsa="kg services --all-namespaces"
 alias kgr="kg rc --all-namespaces"
-alias kgn="kg nodes --show-labels=true"
+alias kgn="kg nodes -L container-linux-update.v1.coreos.com/version -L zone -L species"
 alias kl="k logs -f"
 alias klt="kl --tail 1000"
 alias ke="k exec -ti"
