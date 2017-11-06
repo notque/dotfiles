@@ -99,14 +99,13 @@ au FocusLost * :wa
 
 "Color scheme (terminal)
 syntax on
-let g:solarized_contrast = 'high'
-let g:solarized_visibility = 'low'
-let g:solarized_termtrans = 1
 set fillchars=vert:│
+set macligatures
+"set guifont=Fira\ Code:h12
+set guifont=Hack:h12
 " Override color scheme to make split the same color as tmux's default
 autocmd ColorScheme * highlight VertSplit cterm=NONE guibg=NONE ctermbg=NONE
-set guifont=Hack:h12
-colorscheme solarized
+colorscheme base16-monokai
 
 "Gui Options
 set guioptions=e-t
@@ -117,16 +116,10 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 "NERDTree Helpers
 nmap <Leader>n :NERDTreeToggle<CR>
-let NERDTreeIgnore=['tmp', 'pkg$']
+let NERDTreeIgnore=['tmp', '_output', '_scratch', 'bin']
 
 "Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
-
-"Tabularize helpers
-nmap <Leader>t= :Tabularize /=<CR>
-vmap <Leader>t= :Tabularize /=<CR>
-nmap <Leader>t: :Tabularize /:\zs<CR>
-vmap <Leader>t: :Tabularize /:\zs<CR>
 
 "Retab shortcut
 nmap <Leader>retab :%retab<CR>
@@ -146,13 +139,13 @@ autocmd FileType json set equalprg=json_reformat
   
 "Powerline
 let g:airline_powerline_fonts=1
-let g:airline_theme='solarized'
+let g:airline_theme='base16_monokai'
 
 "vim-markdown
 let g:vim_markdown_folding_disabled=1
 
 "ctrl-p
-let g:ctrlp_custom_ignore = 'vendor/bundle'
+let g:ctrlp_custom_ignore = 'vendor'
 
 "fugitive
 let g:fugitive_github_domains = ['github.com', 'github.wdf.sap.corp']
@@ -160,22 +153,25 @@ let g:fugitive_github_domains = ['github.com', 'github.wdf.sap.corp']
 "Enable goimports to automatically insert import paths instead of gofm
 let g:go_fmt_command = "goimports"
 
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
 let g:go_auto_type_info = 1
 
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
+
+au FileType go nmap <leader>gr <Plug>(go-run)
+au FileType go nmap <leader>gb <Plug>(go-build)
+au FileType go nmap <leader>gt <Plug>(go-test)
+au FileType go nmap <leader>gc <Plug>(go-coverage)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-au FileType go nmap <Leader>s <Plug>(go-implements)
-au FileType go nmap <Leader>e <Plug>(go-rename)
+au FileType go nmap <Leader>i <Plug>(go-implements)
+au FileType go nmap <Leader>r <Plug>(go-rename)
 
 
 "Neocomplete
@@ -186,7 +182,34 @@ set completeopt-=preview
 let g:SuperTabDefaultCompletionType = "context"
 
 "tagbar
-nmap <Leader>tb :TagbarToggle<CR>
+nmap <Leader>t :TagbarToggle<CR>
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+\ }
 
 " Presentation colors and config
 function! PresentationMode()
