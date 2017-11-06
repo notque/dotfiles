@@ -2,6 +2,7 @@ set -g fish_greeting ''
 
 set EDITOR /usr/local/bin/mvim
 set -x GOPATH $HOME/Go
+set -x GOBINPATH $HOME/GoBin
 
 set -x KUBECONFIG .kubeconfig:/Users/d038720/Code/monsoon/monsoon3/.kubeconfig
 set -x GITHUB_TOKEN d9a64f9773fce4dc6ee1c9da289726c29407f5d8
@@ -10,6 +11,7 @@ set PATH /usr/local/bin $PATH
 set PATH /usr/local/sbin $PATH
 set PATH $HOME/bin $PATH
 set PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
+set PATH $GOBINPATH/bin $PATH
 set PATH $GOPATH/bin $PATH
 set PATH /usr/local/opt/go/libexec/bin $PATH
 

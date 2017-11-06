@@ -11,5 +11,5 @@ function openstack
                      -e OS_PASSWORD=$os_password \
                      -e OS_REGION_NAME=$KUBECTL_CONTEXT
 
-  docker run -ti -e http_proxy= -e https_proxy= -e no_proxy $credentials hub.global.cloud.sap/monsoon/cc-openstack-cli:latest -- /bin/bash -c "openstack $argv"
+  docker run -ti -e http_proxy= -e https_proxy= -e no_proxy $credentials hub.global.cloud.sap/monsoon/cc-openstack-cli:latest -- /bin/bash
 end
