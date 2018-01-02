@@ -12,7 +12,6 @@ brew update
 brew upgrade
 
 brew install autojump
-brew install caskroom/cask/brew-cask
 brew install docker
 brew install fish
 brew install git
