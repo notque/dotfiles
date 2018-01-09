@@ -1,19 +1,9 @@
-runtime macros/matchit.vim
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-
 "vim needs a posix compliant shell
 if &shell =~# 'fish$'
   set shell=/bin/sh
 endif
 
-execute pathogen#infect()
-
 filetype plugin indent on
-
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-"gets rid of all the crap that Vim does to be vi compatible
-set nocompatible
 
 "prevents some security exploits having to do with modelines
 set modelines=0
@@ -25,6 +15,7 @@ set softtabstop=2
 set expandtab
 
 "a few options that just make things better
+set relativenumber
 set encoding=utf-8
 set scrolloff=3
 set autoindent
@@ -35,7 +26,7 @@ set wildmenu
 set wildmode=list:longest
 set visualbell
 "set cursorline
-set ttyfast
+"set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
@@ -72,23 +63,6 @@ if exists('+colorcolumn')
   set colorcolumn=85
 endif
 
-"force arrow keys off
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-nnoremap j gj
-nnoremap k gk
-
-"Use the arrows to something usefull
-map <right> :BF<CR>
-map <left> :BB<CR>
-map <up> :BD<CR>
-
 "get rid of that stupid goddamned help key
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
@@ -100,12 +74,11 @@ au FocusLost * :wa
 "Color scheme (terminal)
 syntax on
 set fillchars=vert:│
-set macligatures
-"set guifont=Fira\ Code:h12
-set guifont=Hack:h12
+set guifont=Fira\ Code:h12
+"set guifont=Hack:h12
 " Override color scheme to make split the same color as tmux's default
 autocmd ColorScheme * highlight VertSplit cterm=NONE guibg=NONE ctermbg=NONE
-colorscheme base16-monokai
+colorscheme desert
 
 "Gui Options
 set guioptions=e-t
