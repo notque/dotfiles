@@ -29,3 +29,5 @@
 
 [branch]
 	autosetupmerge = true
+[http]
+	proxy = http://proxy.pal.sap.corp:8080
