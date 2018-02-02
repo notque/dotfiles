@@ -23,6 +23,7 @@ brew install tree
 brew install weechat --with-python --with-ruby --with-lua --with-perl
 brew install wget
 brew install xz
+brew install boz/repo/kail 
 
 brew cask install alfred
 brew cask alfred link
