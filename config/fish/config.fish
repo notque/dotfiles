@@ -1,11 +1,14 @@
 set -g fish_greeting ''
 
 set EDITOR /usr/local/bin/mvim
-set -x GOPATH $HOME/Go
-set -x GOBINPATH $HOME/GoBin
+#set -x GOPATH $HOME/Go
+#set -x GOBINPATH $HOME/GoBin
 
-set -x KUBECONFIG .kubeconfig:/Users/d038720/Code/monsoon/monsoon3/.kubeconfig
+set -x KUBECONFIG /Users/nathan.oylersap.com/cc/monsoon3/.kubeconfig
 set -x GITHUB_TOKEN d9a64f9773fce4dc6ee1c9da289726c29407f5d8
+set -x AWS_ACCESS_KEY_ID f71fec4947574cdca7bf049117281dd7
+set -x AWS_SECRET_ACCESS_KEY afc4644fe325415bb7e0e5c5bdc19354
+set -x AWS_DEFAULT_REGION staging
 
 set PATH /usr/local/bin $PATH
 set PATH /usr/local/sbin $PATH
@@ -25,7 +28,7 @@ alias kgs="kg services --show-all"
 alias kgsa="kg services --all-namespaces"
 alias kgr="kg rc --all-namespaces"
 alias kgn="kg nodes -L container-linux-update.v1.coreos.com/version -L zone -L species"
-alias kl="k logs -f"
+#alias kl="k logs -f"
 alias klt="kl --tail 1000"
 alias ke="k exec -ti"
 alias kd="k describe"
@@ -33,7 +36,11 @@ alias kdp="kd pod"
 alias kds="kd service"
 alias kdr="kd rc"
 alias kdn="kd node"
-alias kc="k create"
+#alias kc="k create"
+alias kc="ku"
+alias kl="_kail"
+kc staging
+kn monsoon3
 
 alias g="git"
 alias gs="git status"

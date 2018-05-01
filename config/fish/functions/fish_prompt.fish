@@ -5,9 +5,9 @@ function __kubectl_context
   if test -n "$KUBECTL_CONTEXT"
     set context $KUBECTL_CONTEXT
   else
-    if type -p monsoonctl > /dev/null
-      set context (monsoonctl config current-context)
-    end
+    #if type -p monsoonctl > /dev/null
+    #  set context (monsoonctl config current-context)
+    #end
   end
 
   if test -n "$KUBECTL_NAMESPACE"
