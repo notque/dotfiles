@@ -32,4 +32,3 @@
 [http]
 [http]
 [http]
-	proxy = http://proxy.pal.sap.corp:8080

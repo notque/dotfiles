@@ -76,3 +76,6 @@ function fish_user_key_bindings
 end
 
 [ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/nathan.oylersap.com/Downloads/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/Users/nathan.oylersap.com/Downloads/google-cloud-sdk/path.fish.inc'; else; . '/Users/nathan.oylersap.com/Downloads/google-cloud-sdk/path.fish.inc'; end; end
